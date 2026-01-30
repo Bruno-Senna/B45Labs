@@ -1,24 +1,31 @@
 # B45 Labs (Revit Add-in)
 
-B45 Labs is a productivity-focused Autodesk Revit add-in designed to streamline **coordination**, **auditing**, and **QA/QC** workflows for BIM teams.
+**B45 Labs** is a productivity-focused Autodesk Revit add-in built to speed up, simplify, and increase accuracy across **coordination**, **documentation**, **auditing**, and **QA/QC** workflows for BIM teams and models.
 
-> **Brand note:** This project was previously released under the name **BIM Genie** and has been rebranded to **B45 Labs**.
+> **Brand note:** this project was previously released as **BIM Genie** and has been rebranded to **B45 Labs**.
 
 ---
 
 ## Key Features
 
-- **Model Check**
-  - Coordinate validation and reporting (Survey Point / Base Point / Internal Origin).
-  - Model health checks and diagnostics (including links/imports visibility and breakdown).
+- **Model Check (QA/QC)**
+  - Coordinate validation and reporting (Survey Point / Project Base Point / Internal Origin).
+  - Model health checks and diagnostics (e.g., links/imports visibility and breakdown).
   - Parameter and content auditing utilities.
 
 - **Model Management**
-  - Workset export/import workflows (where available).
+  - Workset export/import workflows (when applicable).
   - Selection and cleanup utilities to accelerate common BIM tasks.
 
+- **Clash Analyses**
+  - View preparation for NWC export.
+  - Tool to place spheres to help locate clashes directly from Navisworks reports.
+
+- **Documentation**
+  - Tools to streamline documentation, including creating scaled sheets, copying full sheets from other models, and copying/moving views, drafting views, legends, and schedules.
+
 - **User Experience**
-  - Consistent dialogs and outputs for QA review.
+  - Consistent dialogs and reports for QA review.
   - Light/Dark theme-aware icons and UI behavior.
   - Built-in update check mechanism.
 
@@ -26,48 +33,48 @@ B45 Labs is a productivity-focused Autodesk Revit add-in designed to streamline 
 
 ## Requirements
 
-- **Autodesk Revit:** 2025 and 2026
-- **Operating System:** Windows
-- **Installation:** Admin rights may be required depending on install location and machine policy.
+- **Autodesk Revit:** 2025 and 2026  
+- **Operating System:** Windows  
+- **Installation:** Admin rights may be required depending on machine policy and install location.
 
 ---
 
 ## Installation
 
-### Option A — Installer (recommended)
 1. Download the latest installer from the GitHub **Releases** page.
 2. Close Revit before installing.
 3. Run the installer and follow the setup wizard.
 4. Launch Revit and open the **B45 Labs** ribbon tab.
 
-### Option B — Manual install (advanced)
-If you maintain internal deployments:
-1. Copy the add-in bundle (DLLs + dependencies) to your target directory.
-2. Place the `.addin` manifest in the appropriate Revit Addins folder (per user or all users).
-3. Ensure dependencies are present and unblocked by Windows.
+> **Note (Windows SmartScreen):** since this is a new application, Windows may display a security warning. If you downloaded the installer directly from the official GitHub Releases page, use **More info** → **Run anyway** (when applicable).
 
 ---
 
 ## Updates
 
-B45 Labs can check for newer versions and prompt you when an update is available.  
-The download link points to the GitHub Releases page.
+B45 Labs can check for newer versions and notify you when an update is available.  
+Downloads point to the GitHub **Releases** page.
 
-If an update is marked as required for compatibility or stability, some versions may block execution until updated.
+For critical compatibility or stability updates, some versions may block execution until updated.
 
 ---
 
 ## Telemetry / Diagnostics (Internal Use)
 
-To improve stability and prioritize development, B45 Labs collects limited usage and diagnostic signals, including:
-- commands executed and usage counts,
-- error logs,
-- model metadata (model name, total element count, total link count),
-- approximate region (country/region),
-- device/performance signals,
-- Revit username.
+To improve stability and prioritize fixes, B45 Labs may collect **limited distribution, usage, and diagnostic data**, focused on product reliability.
 
-See **PRIVACY.md** for details and limitations.
+**What may be collected (examples by category):**
+- **Feature usage:** executed commands and usage counts.
+- **Error diagnostics:** exceptions, failures, error messages, and minimal technical context for investigation.
+- **Software environment:** Revit version, add-in version, and general system information needed for compatibility.
+- **Approximate context:** non-precise region information (e.g., country/state), when applicable.
+
+**What is NOT collected:**
+- **Model content:** geometry, elements, families, views/sheets, project parameters, or any design content.
+- **Project files:** RVT/RFA files or client documents.
+- **Sensitive personal data.**
+
+> For full details (data items, purposes, retention, and limitations), see **PRIVACY.md**.
 
 ---
 
@@ -99,15 +106,3 @@ Copyright (c) 2026 B45 Labs.
 All rights reserved.
 
 Use of this Software is governed by the **TERMS.md** agreement.
-
-## Telemetry / Diagnostics
-
-To improve stability and prioritize development, B45 Labs collects limited usage and diagnostic signals (non-sensitive), such as:
-- commands executed and usage counts,
-- error logs,
-- model metadata (e.g., model name, total element count, total link count),
-- approximate region (country/region),
-- device/performance signals,
-- Revit username.
-
-See PRIVACY.md for details, purposes, and limitations.
