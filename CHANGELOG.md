@@ -5,6 +5,42 @@ This project adheres to [Semantic Versioning](https://semver.org/) and follows t
 
 ---
 
+## [1.0.2] – 2026-03-01
+
+### Added
+- **Documentation Tab (6 new commands)**
+  - Move Views
+  - Duplicate Views
+  - Copy Legends
+  - Copy Schedules
+  - Create Multiple Sheets
+  - Copy Sheet From Another Model
+- **UI / About**
+  - Updated the About Me content and added an optional donation button.
+
+### Changed
+- **UI & Experience**
+  - Improved UI consistency across dialogs, icons, and output messages.
+  - Rebuilt the About Me experience (layout, content, and behavior).
+- **Core Tools**
+  - Refactored Check Coordinates for higher reliability and maintainability.
+- **Telemetry & Insights**
+  - Upgraded usage/error tracking to better understand command distribution and error patterns.
+  - Improved mapping consistency for higher reporting quality.
+- **Security & Privacy**
+  - Completed a code + telemetry security review (no sensitive data is collected).
+- **Stability & Maintainability**
+  - General stability improvements and internal refactors aligned with B45 coding standards.
+
+### Fixed
+- Fixed YouTube link (PT-BR tutorials recorded and currently being published; EN tutorials coming soon).
+- Fixed installer issues that could cause installation failures.
+
+### Distribution
+- Implemented digital signing for trusted distribution.
+
+---
+
 ## [1.0.1] – 2026-01-27
 
 ### Changed
@@ -14,6 +50,8 @@ This project adheres to [Semantic Versioning](https://semver.org/) and follows t
 - **Documentation**
   - Updated README telemetry/diagnostics description and references to PRIVACY.md and TERMS.md.
   - Updated SECURITY and SUPPORT references for consistency.
+
+---
 
 ## [1.0.0] – 2026-01-01
 
