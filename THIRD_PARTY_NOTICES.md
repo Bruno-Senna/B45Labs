@@ -1,7 +1,7 @@
 # B45 Labs – Third-Party Notices
 
-**Last updated:** 2026-03-01  
-**Applies to:** B45Labs_Addin v1.0.2 (Revit 2025 / 2026 builds)
+**Last updated:** 2026-03-18
+**Applies to:** B45Labs_Addin v1.0.3 (Revit 2023 / 2024 / 2025 / 2026 builds)
 
 This document lists third-party components used by the B45 Labs software and the applicable licenses.
 
@@ -35,22 +35,24 @@ Recommended workflow:
 
 | Component / Package | Version | License / Terms | Source / Notes |
 |---|---:|---|---|
-| Autodesk Revit API (RevitAPI.dll, RevitAPIUI.dll, etc.) | 2025 / 2026 | Autodesk EULA | Installed with Autodesk Revit. Referenced only; not redistributed independently. |
-| Dynamo Core / Dynamo Services (if used) | (fill) | Autodesk / Dynamo terms | Used for Dynamo-related functionality where applicable. |
+| Autodesk Revit API (RevitAPI.dll, RevitAPIUI.dll, etc.) | 2023 / 2024 / 2025 / 2026 | Autodesk EULA | Installed with Autodesk Revit. Referenced only; not redistributed independently. |
 | Microsoft .NET Runtime Components (System.\*, Microsoft.\*) | (fill) | Microsoft Software License Terms | Installed as part of .NET / Windows. Only standard runtime components are used. |
 
-> Note: B45 Labs does **not** distribute Autodesk or Dynamo binaries outside the standard Revit installation; they are referenced where present on the user’s machine.
+> Note: B45 Labs does **not** distribute Autodesk binaries outside the standard Revit installation.
+>
+> Revit 2023 and 2024 are built against `net48` (B45Labs_Addin_Legacy).  
+> Revit 2025 and 2026 are built against `net8.0-windows` (B45Labs_Addin).
 
 ### 2.2 Open-source / third-party libraries
 
-These are the main third-party libraries that are redistributed with the B45 Labs installer (via NuGet or otherwise):
+These are the main third-party libraries that are redistributed with the B45 Labs installer:
 
 | Component / Package | Version | License | Source / Notes |
 |---|---:|---|---|
 | BouncyCastle.Cryptography | 2.5.0 | MIT | Cryptography utilities. https://github.com/bcgit/bc-csharp |
 | ClosedXML | 0.104.2 | MIT | Excel export / spreadsheet handling. https://github.com/ClosedXML/ClosedXML |
 | IronPython | 3.4.2 | Apache 2.0 | Scripting/runtime. https://github.com/IronLanguages/ironpython3 |
-| Microsoft.CodeAnalysis.Common | 4.12.0 | MIT | Roslyn compiler platform. Primarily analyzers/dev tooling. https://github.com/dotnet/roslyn |
+| Microsoft.CodeAnalysis.Common | 4.12.0 | MIT | Roslyn compiler platform. https://github.com/dotnet/roslyn |
 | Microsoft.CSharp | 4.7.0 | MIT | Microsoft C# runtime helpers. https://github.com/dotnet/runtime |
 | Microsoft.IO.RecyclableMemoryStream | 3.0.1 | MIT | Memory stream pooling. https://github.com/microsoft/Microsoft.IO.RecyclableMemoryStream |
 | Microsoft.Web.WebView2 | 1.0.2957.106 | MIT | Embedded web UI surface. https://github.com/MicrosoftEdge/WebView2Feedback |
@@ -73,41 +75,22 @@ These are the main third-party libraries that are redistributed with the B45 Lab
 
 ## 3. License texts
 
-Some licenses require that their full text be included with any redistribution (for example, MIT, Apache 2.0, SQLite).  
-You can either:
-- embed the full license texts directly in this document, **or**
-- ship them as separate files (for example under `LICENSES\`) and reference them here.
+Some licenses require that their full text be included with any redistribution.
 
 ### 3.1 MIT-licensed components
-Components under the MIT license (e.g. ClosedXML, DocumentFormat.OpenXml, Newtonsoft.Json if used) require the MIT license text to be shipped.
+Ship: `LICENSES\MIT.txt`
 
-Recommended approach:
-- Ship: `LICENSES\MIT.txt` (generic MIT text), and optionally keep per-component references if you prefer.
-
-Example references:
-- ClosedXML – MIT License (see `LICENSES\MIT.txt`)
-- DocumentFormat.OpenXml – MIT License (see `LICENSES\MIT.txt`)
-- Newtonsoft.Json – MIT License (see `LICENSES\MIT.txt`)
+Components: ClosedXML, Newtonsoft.Json, PdfSharpCore, BouncyCastle.Cryptography, and all `Microsoft.*` / `System.*` packages listed above.
 
 ### 3.2 Apache 2.0-licensed components
-Components under the Apache License 2.0 (e.g. Lucene.NET, IronPython) require inclusion of the Apache 2.0 license text and, in some cases, NOTICE information.
+Ship: `LICENSES\Apache-2.0.txt`
 
-Recommended approach:
-- Ship: `LICENSES\Apache-2.0.txt`
-- Ship any required NOTICE files (if applicable per component).
-
-Example references:
-- Lucene.NET – Apache License 2.0 (see `LICENSES\Apache-2.0.txt`)
-- IronPython – Apache License 2.0 (see `LICENSES\Apache-2.0.txt`)
+Components: IronPython. Include any required NOTICE files per component.
 
 ### 3.3 SQLite
-SQLite is generally Public Domain / SQLite License.
+Ship: `LICENSES\SQLite.txt`
 
-Recommended approach:
-- Ship: `LICENSES\SQLite.txt`
-
-Example reference:
-- SQLite (System.Data.SQLite / SQLite.Interop) – SQLite License (see `LICENSES\SQLite.txt`)
+Component: System.Data.SQLite / SQLite.Interop — SQLite License (Public Domain).
 
 ---
 
@@ -115,5 +98,4 @@ Example reference:
 
 For questions about licensing or third-party components in B45 Labs, contact:
 
-- **Vendor:** B45 Labs, Inc.  
 - **Email:** support@b45labs.com

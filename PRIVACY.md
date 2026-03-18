@@ -1,15 +1,14 @@
 # B45 Labs – Privacy Policy
 
-**Effective date:** 2026-01-01  
-**Last updated:** 2026-03-01
+**Effective date:** 2026-01-01
+**Last updated:** 2026-03-18
 
-This Privacy Policy explains how B45 Labs (“B45 Labs”, “we”, “our”, “us”) collects and uses information when you use the B45 Labs Revit add-in (the “Software”).
+This Privacy Policy explains how B45 Labs ("B45 Labs", "we", "our", "us") collects and uses information when you use the B45 Labs Revit add-in (the "Software").
 
 ## 1. Scope
 This Policy applies to information collected through the Software, including usage analytics and error logs used solely for internal product development, stability improvements, and user support.
 
 ## 2. What We Collect
-The Software may collect the following categories of information:
 
 ### 2.1 Usage Data
 - Commands executed (name/identifier) and usage counts.
@@ -21,9 +20,7 @@ The Software may collect the following categories of information:
 
 ### 2.3 Project and Model Metadata
 - Revit model name.
-- Approximate model size indicators such as:
-  - total element count,
-  - total link count.
+- Approximate model size indicators such as total element count and total link count.
 
 **We do not need, and do not intend, to collect file paths, folder locations, or file contents.** If such information appears in a user-provided support screenshot or log, please redact it before sharing.
 
@@ -34,12 +31,13 @@ Collected to understand stability and performance across environments:
 
 ### 2.5 User Identification
 - Revit username (as shown in the Revit environment).
+- User Profile data voluntarily provided (name, preferred name, company, role, industry, sector) — stored locally and optionally synced.
 
 ### 2.6 Region Data
 - Country and region (approximate location) to understand geographic usage distribution.
 
 ## 3. What We Do NOT Collect
-We do not intentionally collect any “sensitive personal data” (special categories), such as health data, biometric identifiers, precise location data, government IDs, financial account data, or authentication credentials.
+We do not intentionally collect any sensitive personal data, such as health data, biometric identifiers, precise location data, government IDs, financial account data, or authentication credentials.
 
 We do not intentionally collect:
 - Payment information.
@@ -51,18 +49,17 @@ We do not intentionally collect:
 Donations/support (if offered) are processed by third-party providers. B45 Labs does not receive or store payment details.
 
 ## 4. How We Use Information
-
 We use collected information strictly for internal purposes, including:
-- Measuring feature adoption and command usage to prioritize development and improvements.
-- Improving stability, performance, and reliability across different Revit versions and environments.
+- Measuring feature adoption and command usage to prioritize development.
+- Improving stability, performance, and reliability across Revit versions (2023–2026).
 - Debugging and fixing errors and regressions.
-- Validating installer/update distribution health (e.g., adoption by version, compatibility signals).
-- Producing aggregated, anonymized metrics (e.g., usage volume by command or region) for roadmap planning.
+- Validating installer/update distribution health.
+- Producing aggregated, anonymized metrics for roadmap planning.
 
 ## 5. Sharing and Disclosure
 We do not sell your data and we do not share collected data with third parties for advertising or marketing.
 
-We may use trusted service providers to store or process analytics (e.g., hosting or database services). Such providers are used only to support our internal operations and are not authorized to use the information for their own purposes.
+We may use trusted service providers to store or process analytics. Such providers are used only to support our internal operations and are not authorized to use the information for their own purposes.
 
 We may disclose information if required by law, court order, or to protect our rights and the security of the Software.
 
@@ -73,25 +70,17 @@ As a general guideline:
 - Usage and diagnostics data may be retained for up to **24 months** unless a longer retention is required to investigate recurring issues or to comply with legal obligations.
 
 ## 7. Security
-Collected data is stored on access-controlled infrastructure and is limited to authorized personnel for the purposes described in this Policy. We use reasonable safeguards appropriate to the nature of the data and the risk.
-
-We implement reasonable administrative, technical, and organizational safeguards to protect collected information. However, no method of transmission or storage is 100% secure.
+Collected data is stored on access-controlled infrastructure and is limited to authorized personnel for the purposes described in this Policy. We implement reasonable administrative, technical, and organizational safeguards to protect collected information. However, no method of transmission or storage is 100% secure.
 
 ## 8. Your Choices and Requests
-You may contact us to:
-- request information about data associated with your usage,
-- request correction or deletion where applicable.
-
-We may ask for additional information to verify your request.
+You may contact us to request information about data associated with your usage, or to request correction or deletion where applicable. We may ask for additional information to verify your request.
 
 ## 9. International Use
 The Software may be used in different countries. Information may be processed in the United States or other locations where our service providers operate.
 
 ## 10. Changes to This Policy
-We may update this Policy from time to time. The “Last updated” date will reflect the most recent revision. Material changes may be communicated through release notes or in-Software notices.
+We may update this Policy from time to time. The "Last updated" date will reflect the most recent revision. Material changes may be communicated through release notes or in-Software notices.
 
 ## 11. Contact
-For privacy questions or requests, contact:
-
-**B45 Labs Support**  
+**B45 Labs Support**
 Email: support@B45Labs.com

@@ -1,14 +1,14 @@
 # B45 Labs – Support
 
-**Last updated:** 2026-01-01
+**Last updated:** 2026-03-18
 
 ## 1. Support channels
 - Email: **support@B45Labs.com**
 
 ## 2. What to include in a support request
 To help us reproduce and fix issues quickly, include:
-- B45 Labs version (e.g., 1.0.0)
-- Revit version (2025 or 2026) + build number if available
+- B45 Labs version (e.g., 1.0.3)
+- Revit version (2023, 2024, 2025, or 2026) + build number if available
 - A short description of what you were doing
 - Steps to reproduce (if you can)
 - Screenshot of the message/output

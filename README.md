@@ -12,21 +12,28 @@ B45 Labs is a productivity-focused Autodesk Revit add-in designed to streamline 
   - Coordinate validation and reporting (Survey Point / Base Point / Internal Origin).
   - Model health checks and diagnostics (including links/imports visibility and breakdown).
   - Parameter and content auditing utilities.
+  - Level, wall, and room validation.
 
 - **Documentation**
   - Batch documentation tools to speed up common production workflows.
   - View, schedule, legend, and sheet utilities.
+  - Sheet issue date synchronization.
+
+- **Model Management**
+  - Check and upgrade external Revit file versions.
+  - Export/import worksets, select and manage in-place elements.
 
 - **User Experience**
-  - Consistent dialogs and outputs for QA review.
+  - Consistent Autodesk-style dark theme across all dialogs.
   - Light/Dark theme-aware icons and UI behavior.
+  - User Profile with preferred name, role, industry, and sector.
   - Built-in update check mechanism.
 
 ---
 
 ## Requirements
 
-- **Autodesk Revit:** 2025 and 2026
+- **Autodesk Revit:** 2023, 2024, 2025, or 2026
 - **Operating System:** Windows
 - **Installation:** Admin rights may be required depending on install location and machine policy.
 
@@ -46,17 +53,51 @@ If you maintain internal deployments:
 2. Place the `.addin` manifest in the appropriate Revit Addins folder (per user or all users).
 3. Ensure dependencies are present and unblocked by Windows.
 
+> **Note:** Revit 2023 and 2024 use the `net48` build (`B45Labs_Addin_Legacy`).  
+> Revit 2025 and 2026 use the `net8.0-windows` build (`B45Labs_Addin`).
+
 ---
 
-## Documentation Tab (v1.0.2+)
+## Commands Overview
 
-Current commands include:
+### QA/QC
+- Check Coordinates
+- Check Model Health
+- Check Levels *(new in v1.0.3)*
+- Check Walls *(new in v1.0.3)*
+- Check Rooms *(new in v1.0.3)*
+- Check Parameters
+- Check Painted Elements
+
+### Model Management
+- Toggle Reference Points
+- Get Element Coordinates
+- Select All In-Place Elements
+- Clear All Painted Elements
+- Export / Import Worksets
+
+### Documentation
 - Move Views
 - Duplicate Views
 - Copy Legends
 - Copy Schedules
-- Create Multiple Sheets
-- Copy Sheet From Another Model
+- Create Sheets
+- Copy Sheet From Model
+- Sync Sheet Issue Date *(new in v1.0.3)*
+
+### Clash Analysis
+- NWC View
+- Clash Map
+- Resize Clash Spheres
+
+### External Tools
+- Check Model Version *(new in v1.0.3)*
+- Upgrade Model Version *(new in v1.0.3)*
+
+### Settings
+- Change Theme / Language
+- Plug-in Info
+- YouTube Tutorials
 
 ---
 
@@ -79,7 +120,8 @@ To improve stability and prioritize development, B45 Labs collects limited usage
 - device/performance signals,
 - Revit username.
 
-See **PRIVACY.md** for details and limitations.
+No sensitive personal data, file paths, model contents, or geometry is collected.  
+See **PRIVACY.md** for full details and limitations.
 
 ---
 
@@ -99,7 +141,7 @@ Email: **support@B45Labs.com**
 
 When reporting issues, include:
 - B45 Labs version,
-- Revit version (2025/2026),
+- Revit version (2023 / 2024 / 2025 / 2026),
 - steps to reproduce,
 - timestamp and screenshot (redact sensitive details).
 

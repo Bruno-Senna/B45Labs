@@ -5,6 +5,54 @@ This project adheres to [Semantic Versioning](https://semver.org/) and follows t
 
 ---
 
+## [1.0.3] – 2026-03-18 *(Beta)*
+
+### Added
+
+- **New Commands (6)**
+  - Check Levels — validates level naming, elevation consistency, and ordering.
+  - Check Walls — audits wall types, constraints, and structural parameters.
+  - Check Rooms — checks room naming, area, and placement validity.
+  - Sync Sheet Issue Date — batch-updates the issue date parameter across sheets.
+  - Check Model Version — inspects and reports the Revit version of external files.
+  - Upgrade Model Version — batch-upgrades external files to the current Revit version.
+
+- **User Profile**
+  - New *My Profile* tab in the About window.
+  - Fields: Full Name, Preferred Name, Email, Company, Role, Industry, Sector, How you found us.
+  - Preferred Name is used for avatar initials and the greeting message.
+  - Profile is saved locally (`%AppData%\B45Labs\user-profile.json`) and synced to Bubble in the background.
+
+- **Platform — Revit 2023 and 2024**
+  - Expanded support from Revit 2025/2026 to all four versions: 2023, 2024, 2025, 2026.
+  - Unified build system (R23/R24 via `net48` legacy project; R25/R26 via `net8.0-windows`).
+
+### Changed
+
+- **UI — Complete Redesign**
+  - All command windows and dialogs rebuilt with the new Autodesk-style visual language.
+  - Unified dark theme: consistent colors, spacing, typography, and corner radii throughout.
+  - Autodesk brand blue (`#0696D7`) replaces the previous accent (`#2E7CF6`) across all surfaces.
+  - Blue divider accent line below every title bar — consistent across all windows.
+  - Flat button style (no drop shadows), uniform input field height (`34px`), and tighter spacing.
+  - Icons, status bars, toolbar buttons, and DataGrid row styles aligned to the new design system.
+
+- **Code Quality**
+  - General stability improvements and internal refactors aligned with B45 coding standards.
+  - Improved error handling and best-effort patterns across all commands.
+  - `ElementId.Value` used consistently throughout (removed all `.IntegerValue` usages for R25/R26 compatibility).
+
+- **Security**
+  - Full security review pass on all commands and telemetry paths.
+  - Confirmed: no sensitive data is collected, stored, or transmitted.
+
+### Notes
+- This is a **beta release**. Installer distributed as `B45Labs_Installer_v1.0.3_Beta`.
+- Compatible with **Revit 2023, 2024, 2025, and 2026**.
+- Feedback and bug reports: [support@B45Labs.com](mailto:support@B45Labs.com)
+
+---
+
 ## [1.0.2] – 2026-03-01
 
 ### Added
@@ -59,15 +107,12 @@ This project adheres to [Semantic Versioning](https://semver.org/) and follows t
 - **Rebrand (BIM Genie → B45 Labs)**
   - Updated naming across UI, ribbon tabs, commands, and documentation.
   - Plugin identity surfaces aligned with the new B45 Labs brand (labels, dialogs, and messaging).
-
 - **Platform & Architecture**
   - Internal refactor to improve stability, maintainability, and long-term scalability.
-  - Cleaner separation between UI, core services, and Revit API logic for more predictable behavior.
-
+  - Cleaner separation between UI, core services, and Revit API logic.
 - **User Experience**
   - More consistent dialogs, icons, and output formatting across tools.
   - Improved clarity of execution messaging and results for QA/QC review workflows.
-
 - **Reliability & Diagnostics**
   - Best-effort behavior expanded: isolated failures are less likely to break entire operations.
   - Logging and error handling refined for more stable sessions and easier troubleshooting.
@@ -75,17 +120,15 @@ This project adheres to [Semantic Versioning](https://semver.org/) and follows t
 ### Added
 - **New Commands / Toolset Expansion**
   - New commands introduced as part of the ongoing B45 Labs roadmap.
-  - Feature coverage expanded across existing tool categories to support broader productivity and QA/QC workflows.
-
+  - Feature coverage expanded across existing tool categories.
 - **Compatibility**
   - Added support and validation for Revit 2026 (while maintaining Revit 2025 compatibility).
 
 ### Notes
-- This is the **first stable release**, focused on rebranding and platform stabilization.
+- First stable release, focused on rebranding and platform stabilization.
 - Compatible with **Revit 2025** and **Revit 2026**.
-- Feedback, suggestions, or bug reports: [support@B45Labs.com](mailto:support@B45Labs.com).
 
-------
+---
 
 ## [0.0.11-beta] – 2025-08-30
 
@@ -96,13 +139,11 @@ This project adheres to [Semantic Versioning](https://semver.org/) and follows t
   - Fixed X/Y value inversion in specific project contexts.
   - Results are now formatted for better readability (X, Y, Z in clear columns).
   - Organized presentation: Survey Point → Base Point → Internal Origin.
-
 - **Check Coordinates**
   - Now powered by the new `Get Element Coordinates` engine with full precision.
   - Added detection of misalignment between Survey and Base Points.
   - Output messages are clearer and more consistent, with feedback on detected issues.
   - Logic simplified for easier maintenance.
-
 - **Check Model Health**
   - New command: **Links & Imports Breakdown** – analyzes linked RVT and CAD files.
   - Performance optimized in data collection using `FilteredElementCollector`.
@@ -111,212 +152,121 @@ This project adheres to [Semantic Versioning](https://semver.org/) and follows t
 
 ### Fixed
 - Fixed bug where coordinates were mirrored in some models.
-- Visual and rotation adjustments to icons in the “Model Check” tab.
+- Visual and rotation adjustments to icons in the "Model Check" tab.
 - Fixed bug affecting models with multiple active survey points.
 
 ### Notes
-- This is a **beta release**, currently compatible with **Revit 2025 only**.
-- Feedback, suggestions, or bug reports: [support@BIMGenie.com](mailto:support@BIMGenie.com).
+- Beta release, compatible with **Revit 2025** only.
 
 ---
 
 ## [0.0.10-beta] – 2025-07-23
 
 ### Added
-- **Move Views** – New tool to batch relocate views between sheets.
-- **Toggle Reference Points** – Allows quick toggle of Survey Point, Project Base Point, and Internal Origin visibility.
-- **Clear View With/Without Links** – New options added to Clear View dropdown.
-- **Reset Chat** – New command to reset Assistant history and context.
-- **New icons for all tools**, including light/dark variants.
-- **New command groups** in the Ribbon: Model Check, Model Management, Clash Analysis, External Tools, and Settings.
+- Move Views, Toggle Reference Points, Clear View With/Without Links, Reset Chat.
+- New icons for all tools, including light/dark variants.
+- New command groups in the Ribbon.
 
 ### Changed
-- Full **Ribbon redesign**:
-  - Commands now grouped by category for intuitive access.
-  - Icons updated for clarity, visibility, and style.
-- Assistant commands were remapped to reflect UI changes.
-- Improved dark/light **theme detection** with dynamic icon switching.
-- New **icon color palette** based on functional grouping (green = check, red = clash, blue = system, etc.).
-
-### Improved
-- B45 Labs Assistant layout and alignment polished.
-- Analytics system now accurately tracks usage even with renamed commands.
-- Performance improvements in command loading and ribbon rendering.
-- Updated installer now fully removes outdated folders and databases.
-- Improved icon scaling and crispness on high-DPI displays.
+- Full Ribbon redesign with commands grouped by category.
+- Improved dark/light theme detection with dynamic icon switching.
 
 ### Fixed
-- Fixed command routing inconsistencies due to refactoring.
-- Addressed Assistant command mismatch in some Revit versions.
-- Resolved tooltip duplication and icon flickering in light mode.
-- Fixed issue where painted elements were not being correctly reset.
+- Command routing inconsistencies due to refactoring.
+- Tooltip duplication and icon flickering in light mode.
+- Issue where painted elements were not being correctly reset.
 
 ### Notes
-- This is a **beta release**, focused on stability and UI/UX improvements.  
-- Compatible only with **Revit 2025**.  
-- Feedback and bug reports are welcome at [support@BIMGenie.com](mailto:support@BIMGenie.com).
+- Beta release, compatible with **Revit 2025** only.
 
 ---
 
 ## [0.0.9-beta] – 2025-06-05
 
 ### Changed
-- Reorganized ribbon commands across their appropriate categories (Model Check, Management, Analysis, etc.)
-- Standardized internal command naming for consistency across UI, Assistant, and tracking
-- Improved command registration logic and overall structure for better scalability
-
-### Improved
-- Assistant interpretation and response mapping updated for renamed and reorganized commands
-- Light/Dark theme interface consistency improved
-- Minor layout alignment and tooltip standardization
+- Reorganized ribbon commands across appropriate categories.
+- Standardized internal command naming for consistency across UI, Assistant, and tracking.
 
 ### Fixed
-- Button order inconsistencies in some ribbon groups
-- Tooltip and label mismatches after ribbon restructuring
-- Internal mapping issues between Assistant commands and actual command logic
-
-### Notes
-- This is a **beta release** focused on usability and internal command structure refinements  
-- Currently supported only for **Revit 2025**  
-- Feedback and suggestions: [support@BIMGenie.com](mailto:support@BIMGenie.com).
+- Button order inconsistencies, tooltip mismatches, and internal mapping issues.
 
 ---
 
 ## [0.0.8-beta] – 2025-05-30
 
 ### Added
-
-#### Model Check  
-- **Check Model Health** – Evaluates overall model integrity.  
-- **Check Parameters** – New interactive interface for selecting and analyzing parameters by category.  
-- **Check Painted Elements** – Detects and reports painted materials in the model.
-
-#### Model Management  
-- **Export Worksets** – Automatically exports worksets to Excel.  
-- **Import Worksets** – Allows reimport of worksets with mapping support.  
-- **Select All In-Place Elements** – Automatically selects all in-place elements.  
-- **Clear Painted Elements** – Removes painted materials from selected elements.  
-- **Reset Check Painted Elements** – Resets previously flagged painted elements.
-
-#### External Tools *(new tab created)*  
-- Relocated **Check Model Version** and **Upgrade Model Version** into a dedicated tab for external operations.
-
-#### Settings  
-- **Change Language** – Switches plugin interface language.  
-- **Plug-in Info** – Quick access to version details, author, and support information.
-
-#### Official Tutorials  
-- **YouTube Tutorial Videos** – New button linking directly to official B45 Labs YouTube tutorials.
+- Check Model Health, Check Parameters, Check Painted Elements.
+- Export/Import Worksets, Select All In-Place Elements, Clear/Reset Painted Elements.
+- External Tools tab (Check Model Version, Upgrade Model Version).
+- Change Language, Plug-in Info, YouTube Tutorials.
 
 ### Changed
-
-- **NWC View** – Enhanced 3D export view generation with adjusted background and standardized view name.  
-- **Clash Map** – Improved performance, Excel clash reading, and sphere placement with metadata.  
-- **Clear View Preserve Links** – Improved logic to only restore links manually hidden in the current view.  
-- **Ribbon Restructure** – Tools reorganized into consistent, user-friendly ribbon groups.  
-- **B45 Labs Assistant Improvements**:
-  - More fluid and polished UI.  
-  - Theme support for both dark and light modes.  
-  - Enter key support for message sending.  
-  - Clear Chat button added.  
-  - Refined assistant personality for a more natural and contextual interaction experience.
+- NWC View, Clash Map, Clear View Preserve Links enhanced.
+- Ribbon restructured into consistent user-friendly groups.
+- B45 Labs Assistant: dark/light mode, Enter key, Clear Chat button.
 
 ### Fixed
-
-- Fixed duplicate `.addin` file creation across multiple folders.  
-- Resolved JSON serialization issues affecting Bubble data sync.  
-- Corrected visual layout issues in light theme mode.  
-- Improved stability when closing Revit automatically through the installer.  
-- Fixed assistant misbehavior when reading contextual commands in specific Revit versions.
-
-### Notes
-
-- This is a **beta release**, intended for early testers and internal evaluation.  
-- Currently supported only for **Revit 2025**.  
-- Feedback and bug reports are welcome at [support@BIMGenie.com](mailto:support@BIMGenie.com).
+- Duplicate `.addin` file creation, JSON serialization issues, visual layout in light theme.
 
 ---
 
 ## [0.0.7-beta] – 2025-04-12
+
 ### Changed
-- Clear View command now supports views with **View Templates**:
-  - Detects if a View Template is active and prompts the user with options:
-    - Remove the template and apply the Clear View.
-    - Proceed without removing the template.
-    - Use **Temporary View Properties** mode if available.
+- Clear View command now supports views with View Templates.
 
 ### Fixed
-- Scroll behavior issue in the **B45 Labs Assistant panel** has been resolved.
-  - Users can now smoothly scroll through the chat interface without visual glitches.
+- Scroll behavior issue in the B45 Labs Assistant panel.
 
 ---
 
 ## [0.0.6-beta] – 2025-04-03
+
 ### Added
-New fields added to the analytics engine, including continent, country, city, and screen resolution.
-
-Integration with a free geolocation API to collect regional distribution data.
-
-Automatic geolocation and system spec logging for new users.
+- Analytics: continent, country, city, screen resolution.
+- Geolocation API integration.
 
 ### Changed
-B45 Labs Assistant personality further refined for a more conversational and natural tone.
-
-Improved UI/UX interactions within the Assistant, especially for message handling and flow.
-
-Internal refactor to enhance data serialization and syncing logic.
-
-### Fixed
-Better error handling for location-based API failures.
-
-Minor memory usage and stability enhancements during long Revit sessions.
+- Assistant personality refined; improved UI/UX interactions.
 
 ---
 
 ## [0.0.5-beta] – 2025-04-02
+
 ### Added
-- Bubble sync is now fully operational, with stable background data transmission.
-- "Clear Conversation" button added to the B45 Labs Assistant panel for better control.
+- Bubble sync fully operational.
+- "Clear Conversation" button in Assistant.
 
 ### Changed
-- Significant UX improvements to the B45 Labs Assistant, including visual polish, clearer message flow, and enhanced AI personality behavior.
-- Clash Map tool performance and responsiveness improved.
-- Clear View command refined for more predictable and reliable results.
-
-### Fixed
-- General stability improvements and minor internal adjustments.
+- Clash Map performance improved; Clear View refined.
 
 ---
 
 ## [0.0.4-beta] – 2025-03-25
+
 ### Changed
-- Improved plugin stability during startup and execution.
-- Optimized memory usage and enhanced error handling.
-- Refactored internal processes for better reliability.
-- Unified focus on Revit 2025+ to simplify compatibility and support.
-- **This plugin was developed using the most advanced and up-to-date features of the Revit 2025+ API to ensure maximum performance, stability, and innovation.**
+- Stability, memory, and error handling improvements.
+- Unified focus on Revit 2025+ API.
 
 ---
 
 ## [0.0.3-beta] – 2025-03-23
+
 ### Changed
-- Updated SQLite database path to `C:\ProgramData\B45Labs` to ensure data is collected across all user accounts on a machine.
-- Improved version check system to block outdated versions of B45 Labs when a new release is available.
-- Release date is now correctly formatted and readable (e.g., “March 22, 2025”) instead of showing as a Unix timestamp.
-- Enhanced user experience and professionalism in update prompts.
+- SQLite database path updated to `C:\ProgramData\B45Labs`.
+- Improved version check system and update prompt UX.
 
 ---
 
 ## [0.0.2-beta] – 2025-03-21
+
 ### Changed
-- Updated plugin metadata, including internal name and description adjustments.
-- Minor text refinements to prepare for public testing.
+- Plugin metadata and text refinements for public testing.
 
 ---
 
 ## [0.0.1-beta] – 2025-02-20
+
 ### Added
-- Initial release of the B45 Labs Add-in.
-- Core functionality for user activity tracking, command usage logging, and error reporting.
-- Local SQLite database setup for storing usage data.
-- Basic background sync structure prepared for integration with Bubble backend.
+- Initial release: core activity tracking, command usage logging, error reporting.
+- Local SQLite database and background Bubble sync structure.

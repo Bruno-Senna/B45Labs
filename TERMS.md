@@ -1,7 +1,7 @@
 # B45 Labs – Terms of Use / End User License Agreement (EULA)
 
 **Effective date:** 2026-01-01  
-**Last updated:** 2026-03-01
+**Last updated:** 2026-03-18
 
 This Terms of Use / End User License Agreement (“Agreement”) is a legal agreement between you (“you”, “your”) and B45 Labs (“B45 Labs”, “we”, “our”, “us”) governing your use of the B45 Labs Revit add-in (the “Software”).
 
