@@ -155,13 +155,16 @@ Download the latest version from [**Releases**](https://github.com/Bruno-Senna/B
 
 ## 📊 Telemetry
 
-To improve stability and prioritize development, B45 Labs collects limited usage signals:
+To improve stability and prioritize development, B45 Labs collects limited, non-sensitive usage signals:
 - Commands executed and usage counts
-- Error logs
-- Model metadata (name, element count, link count)
-- Approximate region, device signals, Revit username
+- Error logs and stack traces
+- Add-in version, build number, and Revit version
+- Approximate region (country/region, derived from IP — IP is not stored)
+- Anonymous installation and session identifiers
 
-No sensitive data, file paths, model contents, or geometry is collected.  
+Optionally, if you fill out the User Profile, we also collect: name, email, company, role, and how you found us.
+
+No model data, file paths, file contents, geometry, passwords, or device information is collected.  
 See [PRIVACY.md](PRIVACY.md) for full details.
 
 ---
