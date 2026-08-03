@@ -5,6 +5,172 @@ This project adheres to [Semantic Versioning](https://semver.org/) and follows t
 
 ---
 
+## [2.1.0] – 2026-08-02
+
+> The suite gets one visual identity, colour analysis in Check Walls, branded Excel and PDF
+> reports, contextual F1 help, a Parameter Control that cleans up years of duplicates, and a
+> noticeably faster Revit start.
+
+### Added
+
+**Check Walls**
+- **Visual Analysis** — paint the walls in your model by Base Level, Wall Type, Workset, Phase
+  Created, Phase Demolished, Function, Structural or Problems, with a generated colour palette,
+  eight presets, manual colour pinning, a transparency slider, an on-screen legend and a Reset
+  that restores the original graphics. Colours show in plans and sections, not only in 3D.
+- **Schedule Filters** — the single Level dropdown became seven combinable dimensions, all
+  composing with the search box.
+- Multi-selecting rows in the grid, or entries in the legend, selects exactly those walls in the
+  model and zooms to fit; a new **Isolate Selected Walls** temporarily hides everything else.
+- An opt-in **apply as I open views**, so the current colouring follows you instead of needing
+  Apply in every view.
+
+**Reports and exports**
+- **Branded Excel and PDF** across Check Coordinates, Check Model Health (Overview, Elements,
+  Links and Imports, Schedules, Warnings and Size), Check Parameters, Export Worksets, Model
+  Progress, Clash Report Converter and Model Report Card. Several of these previously wrote a
+  plain text file or nothing at all.
+- **User Profile · Export Branding** — set your company name, accent colour and logo once, and
+  every generated report carries them.
+- **Create Sheets** — the Excel template and the export now share the full branded frame, and the
+  export gained the example shared-parameter columns and how-to cell comments that only the blank
+  template used to have.
+
+**Check Model Health**
+- A **Diagnostics dashboard** with a warnings triage bar splitting warnings into Critical,
+  Important, Noise and Uncatalogued, and **Model Size contributor bars** showing what weighs
+  around the model (links, images, families).
+- **Deep Scan confirmation** — before the family scan runs it tells you how many families it will
+  read and how long that should take, estimated from your own previous scans, with a
+  don't-ask-again option.
+
+**Parameter Control**
+- A new **Cleanup tab** that groups parameters sharing a name, shows what each one actually holds,
+  and consolidates them onto a single survivor instead of just deleting the extras. A whole ticked
+  batch runs at once, with a tri-state header tick, Shift+click ranges, and a Keep column that
+  says why each default survivor was suggested.
+- **Merge Selected** on the Manage tab does the same for parameters that do *not* share a name,
+  picked straight from the grid.
+- A right-click menu on the Manage grid mirroring the toolbar.
+
+**External Tools**
+- A shared sliding **Rename panel** in Check Model Version and Upgrade Model Version, with prefix,
+  suffix and find-and-replace and a live before/after preview. Applying twice never stacks the
+  same suffix.
+- Buttons to **add and remove files after the window is open** (Check Model Version had no way at
+  all), merging picks across folders and skipping duplicates.
+- Upgrade Model Version gained an **overwrite guard**: a per-row warning and a confirmation
+  listing every file that would be saved over its own source with no undo.
+
+**Everywhere**
+- **Contextual F1 help** — press F1 on a ribbon button, inside an open command window, or on a
+  split-button header, and the matching documentation page opens. Windows with no ribbon button of
+  their own (results, breakdowns, pickers, sub-dialogs) resolve to their own page.
+- **Type-ahead in every list** — click any list or grid and start typing to jump to the match.
+- **Completion notifications with counts** — Parameter Control, Smart Purge, Import Worksets,
+  Import Parameters from Excel, Create Sheets, Clear View, NWC View and Save Snapshot now say what
+  they did instead of finishing silently or dumping a dialog.
+
+**Elsewhere**
+- **Check Coordinates** — linked-model cards are collapsible, each a status dot and name that
+  expands to the detail, with Expand all / Collapse all.
+- **Sync Sheet Issue Date · Stamp mode** — type an issue date and an optional first-issue date and
+  write them to their own parameters. Every sheet in the filter is listed, so a first delivery
+  with no revisions can still be stamped. A progress bar runs while it writes.
+- **Sheet Navigator** — dock the palette to the ViewCube or any corner of the drawing area, a new
+  opt-in Home button that zooms to fit (plus Ctrl+Home and Ctrl+Shift+Home), an opacity submenu,
+  and it reopens docked next session if you left it open.
+
+### Changed
+- **One visual identity across the suite** — the B45 letterhead now heads every command window and
+  dialog, the progress popups included, and **"Content Browser" is called "Library"** everywhere
+  in the interface, in all five languages.
+- **Notifications** — progress and completion share one corner of the monitor running Revit, so an
+  operation visibly finishes into its own message. A command never shows both a notification and a
+  dialog for one outcome. A run that ends with warnings raises an amber notification that opens
+  the full report when clicked.
+- **Sliding panels** — one collapsible-panel design across Check Walls, Copy Detail Sheets, Copy
+  Entire Sheet, Place on Existing Sheet and Create Sheets, each remembering its state and width
+  between sessions.
+- **Generated files** — every file the add-in saves defaults to a `B45_` name prefix, so exports
+  group together in your Downloads folder. The "Generated with B45 Labs" signature rides on row 1
+  of working files you type into, and stays at the bottom of true reports.
+- **Parameter Control** — tabs reordered to Manage / Cleanup / Create New / Export; the Manage
+  checkbox column is gone in favour of native Ctrl/Shift multi-select; the footer Cancel is gone,
+  because every operation commits as it runs; the GUID column is out of the downloadable template;
+  Rename runs from a single dialog; and the Excel buttons match Create Sheets in label, order and
+  height.
+- **Ribbon** — Check + Upgrade Model Version, Check Levels + Check Walls, and Get Element
+  Coordinates + Select In-Place Elements became stacked pairs at 24px, matching Autodesk's own
+  panel proportions. Several captions were shortened or re-wrapped so they stop pushing the rest
+  of the ribbon sideways.
+- **Create Sheets** — the import outcome is a structured band with discrete counts and captions,
+  warnings tucked behind a collapsible list instead of pushing the grid down the screen.
+- **Check Parameters** — the results window pre-selects the first available model, so data appears
+  immediately instead of an empty grid.
+- **Plug-in Info** — shorter, the redundant text headline replaced by the logo, the content
+  scrolls so the footer can never be clipped, and a new section points at the other B45 tools.
+- **Translations** — 124 strings that were silently falling back to English are now translated in
+  Portuguese, Spanish, French and Russian. The language picker states that the non-English
+  languages are beta.
+- **Downloads** — the About window's Releases button and the built-in fallback now point at the
+  B45 Labs download page.
+- **Uninstall** — now also removes the shared program data folder (bundled families, dictionaries)
+  once no other B45 product remains installed.
+- **Clash Report Converter** — stays Excel-only; the PDF output was dropped.
+- **About Me** — the biography was rewritten with the real career narrative, in all languages.
+
+### Fixed
+- **Copy Project Parameters** — crashed on every run on Revit 2025 and newer, which made the
+  command unusable there.
+- **Check Coordinates** — the results window failed to open at all and reported a misleading
+  "result window was not found"; it opens again, and a future failure names its real reason.
+- **PDF export never worked** — Check Coordinates and Model Report Card always failed with "an
+  error occurred while exporting to PDF" because the required fonts were never resolved.
+- **Parameter Control** — exporting a project's parameter standard and importing it into the next
+  project now actually works: the export wrote column names the importer did not recognise, so the
+  file looked re-importable and silently was not, and the shared-parameter identifier now travels
+  with it. Consolidating no longer destroys schedule columns. Delete, replace and rename identify
+  a parameter by identity instead of by name, so removing the empty duplicate can no longer take
+  out the canonical one with all its values. Rename accepts a forward slash again. The header tick
+  box is genuinely tri-state. Reading rows on the Cleanup tab no longer enlists them in the next
+  batch of deletions.
+- **Check Parameters** — re-importing a previously exported report no longer discards every row,
+  and no longer fails outright on a non-English interface.
+- **Create Sheets** — a blank spreadsheet row no longer imports as a phantom sheet with no number
+  and no name; the existing-sheets prompt no longer clips its button captions; and the preview
+  grid keeps its selection highlight and B45 styling in both themes.
+- **Check Walls** — Reset clears every colour, including paint left behind by an earlier Revit
+  session; the phase filters list only phases actually present on walls; generated palette colours
+  stay legible on models with many wall types; selecting a legend colour or a grid row no longer
+  yanks you out to the 3D view; and the filter dropdowns no longer clip long names.
+- **Warnings Breakdown** — selecting several rows now selects them all in the model. A single dead
+  element in the snapshot used to kill the entire selection.
+- **Check + Upgrade Model Version** — finished rows are readable in the light theme again; Done
+  and Failed rows painted as near-black bands that swallowed the destination filename.
+- **F1** — pressing it used to open the B45 page *and* Autodesk's Revit help on top of it.
+- **Multi-monitor** — notifications, update prompts, announcements and the ribbon dropdowns now
+  appear on the monitor running Revit instead of always the primary display, and land correctly on
+  desktops that mix display scaling.
+- **Light theme** — selected rows washed out in Clash Map, Copy Project Parameters and Create
+  Sheets, and several Parameter Control labels were pale blue on white.
+- **Dropdowns** — long lists no longer cut off their last item.
+
+### Performance
+- **Revit startup** — the usage database no longer initialises on Revit's startup path. It was
+  measured at 155-930 ms, between 65% and 88% of the add-in's entire startup cost, and nothing on
+  startup needed it.
+- **Opening Revit or a model** no longer runs a full census of every element and link in the
+  document. It was collected twice per open and never used.
+- **Model Size** — repeat Deep Scans are served from the model cache and finish in seconds.
+
+### Security
+- Updated the bundled Microsoft runtime libraries to their latest secure versions, following the
+  Autodesk App Store security review.
+
+### Platform
+- Full support: Revit 2023, 2024, 2025, 2026, and 2027.
+
 ## [2.0.3] – 2026-07-20
 
 > A new Model Size tool, a refined interface across the whole suite, and rock-solid
