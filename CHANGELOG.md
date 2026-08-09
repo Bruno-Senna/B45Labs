@@ -5,6 +5,84 @@ This project adheres to [Semantic Versioning](https://semver.org/) and follows t
 
 ---
 
+## [2.1.1] – 2026-08-08
+
+> Repairs 2.1.0: PDF export threw on Revit 2023 and 2024, Check Levels reported differences
+> that were not there, and renaming a parameter re-filed it under the wrong group on any
+> non-English Revit. The parameter group becomes editable, the parameter template arrives
+> ready to fill in, and Check Spelling opens in the language you are working in.
+
+### Fixed
+
+- **PDF export on Revit 2023 and 2024 threw on every run.** Check Coordinates, Model Report
+  Card and every other PDF output failed with a missing-assembly error. The Autodesk App Store
+  security pins moved four bundled Microsoft libraries to a newer major, and .NET Framework
+  does not roll forward across one: a Revit 2023 or 2024 session asked for the old identity and
+  was refused. Revit 2025 and newer were never affected. The add-in now supplies the matching
+  copy itself, for every library in the payload whose requested version differs from the one
+  shipped beside it, not only the one that surfaced.
+- **Check Levels reported differences that do not exist.** On the Link Comparison tab, levels at
+  the same elevation could be flagged ELEV. DIFF while all three columns showed identical values
+  and the difference column read 0. Two elevations are now treated as the same level when they
+  are within 1/16 in, and a difference too small for the project's units to print is reported in
+  inches or millimetres instead of rounding to zero.
+- **Renaming a parameter moved it to the wrong group** on Portuguese, Spanish, French and Russian
+  installations of Revit. The rename recreates the parameter, and the group it was recreated in
+  was resolved from English names only, so every other language fell through to Data.
+- **Check Annotations** dropped the duplicate-tag count from its summary line in every language
+  except English.
+- **Status and state colours now come from the theme palette.** Revit's Light theme no longer
+  shows dark-theme colours that were unreadable on a light background, and a selected queued row
+  in Check Spaces keeps its selection colour instead of mixing it with the pending-delete tint.
+- **Translations caught up.** Seventy-seven strings across Portuguese, Spanish, French and Russian
+  had fallen behind and were showing in English, including the whole Parameter Control cleanup and
+  merge flow, the Clear View progress messages and the Sheet Navigator docking menu. Every ribbon
+  button caption is now translated in all four languages, and the Spanish and Russian tooltips
+  stopped referring to the Library by a name retired weeks ago.
+- **Check Spelling always opened on English (US)** no matter what language Revit was running in, so
+  working in Portuguese meant every note came back flagged. It now opens on the dictionary that
+  matches your language, falling back to the same language when your region has no dictionary of its
+  own: Revit in Mexican Spanish opens on Spanish, not on English.
+- **Check Spelling** right-click menu rendered as a bright system popup in the middle of the dark
+  window, and the tick-box column painted a pale box over the selected row.
+- **Importing a spreadsheet still open in Excel failed outright** with a file-in-use error, in both
+  Parameter Control and Import Parameters from Excel. Writing a sheet and importing it is one task,
+  and both now read the file while Excel holds it. The last saved state is what imports.
+
+### Added
+
+- **Parameter Control, Edit** — the Manage tab's Rename / Replace becomes **Edit** and now changes
+  the parameter group as well as the name. Leaving the name blank changes only the group, which is
+  a single in-place edit: no values are read, rewritten or put at risk.
+- **Parameter Control, Change Group** — sets the group on the whole selection at once, for models
+  where hundreds of parameters need re-filing. Groups Revit knows but the previous release could
+  not offer, among them Visibility, Photometrics and Title Text, are now selectable.
+
+### Changed
+
+- **The parameter template arrives empty and guided.** It no longer ships a sample row, which the
+  import read as data if you filled the sheet underneath it, and the six columns with a fixed set of
+  valid values now carry drop-downs, so a mistyped data type or group can no longer be accepted
+  silently as something else. Columns lead with Parameter Name, matching the grid the template is
+  read beside. Files authored with the previous template still import unchanged.
+- **Edit opens holding the parameter's current name** instead of an empty box with an instruction to
+  leave it blank. Leaving it as it is means no rename, so changing only the group is now the obvious
+  path rather than a rule to remember. The details panel above it can be selected and copied.
+- **Check Levels: the Spacing field becomes Offset, and it accepts negative values.** The field sets
+  where Add and Duplicate place a new level, so it is an offset from an existing level, not a grid
+  spacing, and the label now says so. A positive offset places the new level above the highest one;
+  a negative offset now builds downward, below the lowest, for basements and site work. Zero stays
+  rejected. The suggested default also stopped being a literal conversion: an imperial project now
+  proposes 10' instead of 9' 10 1/8", a metric one keeps 3 m.
+- **The installer registers as "B45 Labs | Coordination"** in Windows Installed apps, matching the
+  other B45 products, so Windows no longer appends "(Current user, 64-bit)" to tell two same-named
+  entries apart. Existing installs upgrade in place.
+
+### Platform
+- Full support: Revit 2023, 2024, 2025, 2026, and 2027.
+
+---
+
 ## [2.1.0] – 2026-08-02
 
 > The suite gets one visual identity, colour analysis in Check Walls, branded Excel and PDF
